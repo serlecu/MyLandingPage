@@ -30,6 +30,11 @@ h1, h2{
     font-style: normal;
 }
 
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
 h1 {
     font-size: 2.5rem;
 }
@@ -53,6 +58,7 @@ h2 {
 
 header{
     position: sticky;
+    z-index: 10;
     top: 0;
     display: flex;
     flex-direction: row;
@@ -60,8 +66,8 @@ header{
     align-items: center;
     padding: 0 1rem;
     background-color: var(--neutral1-color);
-    border-bottom-left-radius: var(--medium-border-radius);
-    border-bottom-right-radius: var(--medium-border-radius);
+    /* border-bottom-left-radius: var(--medium-border-radius);
+    border-bottom-right-radius: var(--medium-border-radius); */
     /* background: linear-gradient(
         180deg,
         var(--primary-color, 1.0), 
@@ -266,30 +272,43 @@ section {
 
         > .galeria-pic {
             width: 35%;
-            background-color: #8A9B69;
             aspect-ratio: 1 / 1;
             overflow: hidden;
             border-radius: var(--medium-border-radius);
-            text-align: center;
+            /* text-align: center; */
             align-content: center;
+            
+            background-color: #8A9B69;
+            transform: scale(1.0);
+            z-index: 0;
+            color: var(--neutral1-color);
 
-            /* background-image: image(
-                
-                );
-                transform: scale(1.05);
-                filter: brightness(1.1);
-                color: var(--neutral1-color); */
-                
             &:hover {
-                /* animate smoothlyscale, brightness and text color*/
-                transform: scale(1.05);
-                filter: brightness(1.1);
+                transform: scale(1.15);
+                z-index: 1;
             }
+        
+            /* bg img */
             > img {
-                object-fit: fill;
+                filter: brightness(0.9);
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
                 aspect-ratio: 1 / 1;
                 background-color: var(--primary-color);
+                &:hover {
+                    transform: scale(1.5);
+                }
+            }
 
+            > p {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                padding: 1rem .5rem;
+                background-color: rgb(138, 155, 105, 0.6);
+                text-align: center;
+                transform: translate(0%, -50%);
             }
         }
     }
@@ -393,4 +412,11 @@ footer {
     color: var(--primary-color);
     text-align: center;
     font-size: 0.9rem;
+
+    > .enlaces-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
 }
